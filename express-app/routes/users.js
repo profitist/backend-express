@@ -22,6 +22,8 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res) {
   users.items.push(req.body);
+
+  req.body.id = users.items[users.items.length - 1].id;
   res.status(201).json(req.body);
   res.send(users);
 })
